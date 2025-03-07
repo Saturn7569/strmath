@@ -47,10 +47,9 @@ string* string_new(const char* startStr, size_t bufsize) {
 }
 
 int string_append(string* str, const char c) {
-    if (!str || !c) return NULL_ERR;
+    if (!str) return NULL_ERR;
 
-    str->length++;
-    if (str->length > str->MEMSIZE) {
+    if (str->length + 1 > str->MEMSIZE) {
         str->MEMSIZE *= 2;
         str->str = (char*)realloc(str->str, str->MEMSIZE);
         if (!str->str) {
@@ -58,6 +57,12 @@ int string_append(string* str, const char c) {
             return NOMEM_ERR;
         }
     }
+
+    str->str[str->length] = c;
+    str->length++;
+    str->str[str->length] = '\0';
+
+    return 0;
 }
 
 #endif
