@@ -10,7 +10,7 @@
 #define NULL_ERR -2
 
 typedef struct {
-    int length;
+    size_t length;
     char* str;
     size_t MEMSIZE;
 } string;
@@ -25,7 +25,7 @@ string* string_new(const char* startStr, size_t bufsize) {
     size_t mallocSize = bufsize;
 
     while (stringLen + 1 > mallocSize) { // Ensure space for '\0'
-        mallocSize *= 2; // More efficient growth strategy
+        mallocSize *= 2; // More efficient growth
     }
 
     res->str = (char*)malloc(mallocSize);
@@ -35,7 +35,7 @@ string* string_new(const char* startStr, size_t bufsize) {
     }
 
     if (startStr) {
-        memcpy(res->str, startStr, stringLen); // Safer than strcpy
+        memcpy(res->str, startStr, stringLen); // Safer than strcpy because it doesn't need to find the length
     }
 
     res->str[stringLen] = '\0'; // Ensure null termination
@@ -44,6 +44,13 @@ string* string_new(const char* startStr, size_t bufsize) {
     //res->BUFSIZE = bufsize;
 
     return res;
+}
+
+int string_free(string* str) {
+    if (!str) return NULL_ERR;
+    free(str->str);
+    free(str);
+    return 0;
 }
 
 int string_append(string* str, const char c) {
@@ -61,6 +68,17 @@ int string_append(string* str, const char c) {
     str->str[str->length] = c;
     str->length++;
     str->str[str->length] = '\0';
+
+    return 0;
+}
+
+int string_set(string* str, const char* newStr) {
+    if (!str || !newStr) return NULL_ERR;
+
+    size_t newLen = strlen(newStr);
+    while (newLen > str->MEMSIZE) {
+        str->MEMSIZE *= 2;
+    }
 
     return 0;
 }
