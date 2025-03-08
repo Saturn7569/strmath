@@ -28,4 +28,10 @@ Appends a character to the end of the string
     c - the character to append
 */
 int string_append(string* str, const char c)
+
+/*
+Frees a string object from the memory
+    str - the string pointer
+*/
+int string_free(string* str)
 ```
