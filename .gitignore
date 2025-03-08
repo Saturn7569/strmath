@@ -2,3 +2,7 @@
 /test.c
 /test.exe
 /test
+
+# The package
+/package
+/package.zip
