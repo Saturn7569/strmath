@@ -34,4 +34,11 @@ Frees a string object from the memory
     str - the string pointer
 */
 int string_free(string* str)
+
+/*
+Sets the string to a new value
+    str - the string pointer
+    newStr - the new string
+*/
+int string_set(string* str, const char* newStr)
 ```

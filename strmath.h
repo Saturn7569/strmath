@@ -76,9 +76,24 @@ int string_set(string* str, const char* newStr) {
     if (!str || !newStr) return NULL_ERR;
 
     size_t newLen = strlen(newStr);
-    while (newLen > str->MEMSIZE) {
-        str->MEMSIZE *= 2;
+
+    if (newLen + 1 > str->MEMSIZE) {
+        size_t newSize = str->MEMSIZE;
+        while (newLen + 1 > newSize) {
+            newSize *= 2;
+        }
+        char* newPtr = (char*)realloc(str->str, newSize);
+        if (!newPtr) {
+            return NOMEM_ERR;
+        }
+        str->str = newPtr;
+        str->MEMSIZE = newSize;
     }
+
+    memcpy(str->str, newStr, newLen);
+    str->str[newLen] = '\0';
+
+    str->length = newLen;
 
     return 0;
 }
