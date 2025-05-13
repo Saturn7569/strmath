@@ -1,6 +1,8 @@
 # strmath
 A lightweight string library for [C](https://en.wikipedia.org/wiki/C_(programming_language))
 
+*Currently only tested on linux*
+
 ## Usage
 Add the header file to your project and include it using
 ```c
