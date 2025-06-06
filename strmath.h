@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef STRMATH_H
 #define STRMATH_H
 
