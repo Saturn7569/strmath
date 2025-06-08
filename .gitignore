@@ -2,6 +2,7 @@
 /test.c
 /test.exe
 /test
+/*.o
 
 # The package
 /package
