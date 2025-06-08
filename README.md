@@ -4,7 +4,10 @@ A lightweight string library for [C](https://en.wikipedia.org/wiki/C_(programmin
 *Currently only tested on linux*
 
 ## Usage
-Add the header file to your project and include it using
+Add the header file and the c file to your project and include it using
+
+**Make sure you have `strmath.h` and `strmath.c` in the same directory or it won't work**
+
 ```c
 #include <strmath.h>
 ```
