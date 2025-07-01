@@ -17,6 +17,8 @@ string* string_new(const char* startStr, size_t bufsize);
 int string_free(string* str);
 
 int string_append(string* str, const char c);
+int string_append_str(string* str, const char* s);
+
 int string_set(string* str, const char* newStr);
 
 #endif

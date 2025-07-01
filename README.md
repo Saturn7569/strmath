@@ -1,7 +1,7 @@
 # strmath
 A lightweight string library for [C](https://en.wikipedia.org/wiki/C_(programming_language))
 
-*Currently only tested on linux*
+*Currently only tested on linux and windows*
 
 ## Usage
 Add the header file and the c file to your project and include it using
@@ -35,10 +35,11 @@ Appends a character to the end of the string
 int string_append(string* str, const char c)
 
 /*
-Frees a string object from the memory
-    str - the string pointer
+Appends another string to the end of the string
+    str - the string to append to
+    s - the string to append
 */
-int string_free(string* str)
+int string_append_str(string* str, const char* s)
 
 /*
 Sets the string to a new value
@@ -46,4 +47,10 @@ Sets the string to a new value
     newStr - the new string
 */
 int string_set(string* str, const char* newStr)
+
+/*
+Frees a string object from the memory
+    str - the string pointer
+*/
+int string_free(string* str)
 ```

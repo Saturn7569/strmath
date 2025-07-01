@@ -60,6 +60,26 @@ int string_append(string* str, const char c) {
     return 0;
 }
 
+int string_append_str(string* str, const char* s) {
+    if (!str) return NULL_ERR;
+
+    size_t addLen = strlen(s);
+    size_t memLen = addLen + str->length + 1; // + 1 because \0
+    while (str->MEMSIZE < memLen) {
+        str->MEMSIZE *= 2;
+        str->str = (char*)realloc(str->str, str->MEMSIZE);
+        if (!str->str) {
+            return NOMEM_ERR;
+        }
+    }
+
+    memcpy(str->str + (addLen - 1), s, addLen);
+    str->length = memLen - 1;
+    str->str[memLen] = '\0';
+
+    return 0;
+}
+
 int string_set(string* str, const char* newStr) {
     if (!str || !newStr) return NULL_ERR;
 
