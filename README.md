@@ -54,3 +54,29 @@ Frees a string object from the memory
 */
 int string_free(string* str)
 ```
+
+## Contributing
+If you want to contribute please follow these rules:
+
+1. Spaces > Tabs (use 4 spaces)
+2. Curly braces on the same line as function definition 
+So this:
+```c
+void hello() {
+    puts("hello");
+}
+```
+And not:
+
+```c
+void hello()
+{
+    puts("hello");
+}
+```
+
+3. Do not write useless comments, only document the reason the logic works
+So this is wrong:
+```c
+puts("hello") // prints hello
+```
