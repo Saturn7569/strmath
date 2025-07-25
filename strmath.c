@@ -69,6 +69,7 @@ int string_append_str(string* str, const char* s) {
         str->MEMSIZE *= 2;
         str->str = (char*)realloc(str->str, str->MEMSIZE);
         if (!str->str) {
+            free(str);
             return NOMEM_ERR;
         }
     }
@@ -92,6 +93,7 @@ int string_set(string* str, const char* newStr) {
         }
         char* newPtr = (char*)realloc(str->str, newSize);
         if (!newPtr) {
+            free(str);
             return NOMEM_ERR;
         }
         str->str = newPtr;
