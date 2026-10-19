@@ -22,7 +22,7 @@ string
 
 /*
 Creates a string
-    startStr - the starting string (can be NULL)
+    startStr - the starting string (set to NULL for empty string)
     bufsize - the size to allocate (must be higher than 0)
 */
 string* string_new(const char* startStr, size_t bufsize)
