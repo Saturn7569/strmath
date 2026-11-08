@@ -1,12 +1,12 @@
 # strmath
-A lightweight string library for [C](https://en.wikipedia.org/wiki/C_(programming_language))
+
+A lightweight, header-only string library for [C](https://en.wikipedia.org/wiki/C_(programming_language))
 
 *Currently only tested on linux and windows*
 
 ## Usage
-Add the header file and the c file to your project and include it using
 
-**Make sure you have `strmath.h` and `strmath.c` in the same directory or it won't work**
+Add the header file your project and include it using
 
 ```c
 #include <strmath.h>
